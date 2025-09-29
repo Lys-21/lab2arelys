@@ -1,61 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🧪 Laboratorio [Creación de un Proyecto en Laravel con Login]
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## 💻 Objetivo del Laboratorio
 
-## About Laravel
+Este laboratorio tiene como objetivo principal conocer la estructura fundamental de un proyecto en Laravel, entender cómo el framework organiza sus componentes siguiendo el patrón Modelo-Vista-Controlador (MVC) y valorar la relevancia de esta arquitectura en la creación de aplicaciones web actuales.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🛠 Arquitectura y Estructura (Patrón MVC)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Laravel se basa en el patrón de arquitectura *Modelo-Vista-Controlador (MVC)*, que organiza el código en torno a tres componentes principales para mejorar la modularidad y el mantenimiento:
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+| Carpeta | Componente MVC | Función Principal | 
+| app/Models | Modelo | Define la lógica de negocio y las relaciones con la base de datos.| 
+| app/Http/Controllers | Controlador | Recibe las peticiones del usuario, invoca la lógica del modelo y selecciona la vista a mostrar.| 
+| resources/views | Vista | Contiene el código de la interfaz de usuario (HTML/Blade).| 
+| routes/web.php | Rutas | Define las URLs y las acciones que ejecutan los controladores. | 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Requisitos del Ecosistema
 
-## Laravel Sponsors
+Para ejecutar este laboratorio localmente, es necesario tener configurado el siguiente entorno de desarrollo.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+a
+| Prerrequisito | Versión Requerida | Estado | 
+| PHP | 8.0 o superior | ✔ | 
+| Composer | Última versión estable | ✔ | 
+| Instalador de Laravel | Proyecto creado con composer create-project | ✔ | 
+| Entorno de Servidor Web Local | WampServer | ✔ | 
+| Servidor Web | Apache | ✔ | 
+| Base de Datos | MySQL funcionando | ✔ | 
+| Editor de Código | Visual Studio Code | ✔ | 
+| NPM | No fue necesario | — | 
+| Sistema Operativo | Windows 11 | ✔ | 
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Proceso de Instalación y Configuración
 
-## Contributing
+A continuación se documenta la secuencia de comandos utilizados para inicializar el proyecto, instalar dependencias y configurar la autenticación.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+### 1. Inicialización y Dependencias
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+| Comando | Descripción | 
+| composer create-project laravel/laravel nombre-del-proyecto | Crea el proyecto base de Laravel. | 
+| cd nombre-del-proyecto | Accede al directorio del proyecto. | 
+| cp .env.example .env | Crea el archivo de configuración del entorno. | 
+| php artisan key:generate | Genera la clave de aplicación. | 
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+### 2. Instalación del Paquete de Autenticación
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+*Comandos utilizados para la Autenticación:*
+
+composer require laravel/ui
+php artisan ui bootstrap --auth
+npm install && npm run dev 
+
+# Este proceso genera las vistas de login, registro y recuperación de contraseña, además de compilar los assets necesarios para su visualización.
+
+
+
+### 🚗 Comandos utilizados para migraciones
+
+php artisan migrate
+
+
+### 📂Respaldo de la base de datos
+
+Para generar un backup:
+
+mysqldump -u usuario -p nombre_base_de_datos > database/backups/backup_lab2arelys.sql
+
+
+## 🖼️Resultado Visible
+
+![Captura de pantalla del laboratorio] (C:/wamp64/www/lab2arelys/Imagenes/Laravel.png)
+
+
+##  ⚠Dificultades y Soluciones
+
+- Errores con NPM y compilación de assets: Al ejecutar npm install, surgieron errores relacionados con permisos, versiones de Node.js o paquetes faltantes, Se solucionó actualizando Node.js a una versión estable.
+- Conflictos con dependencias de Composer: Al instalar Laravel/ui, se presentaron advertencias sobre versiones incompatibles. Se resolvió ejecutando composer install y actualizando los paquetes mediante composer update, además de revisar el archivo composer.json para asegurar la compatibilidad con PHP 8.0.
+
+##📚 Referencias
+
+
+[1]Laravel Documentation, “Laravel 10.x Documentation,” Laravel, 2025. [Online]. Available: https://laravel.com/docs/10.x
+[2]Brito, “Laravel Migrations,” DEV Community, Sep. 2021. [Online]. Available: https://dev.to/rogeriobrito/laravel-migrations-4g5p
+[3]Laravel Documentation, “Blade Templates,” Laravel, 2025. [Online]. Available: https://laravel.com/docs/10.x/blade
+
+
+## 📝Footer
+
+> Este laboratorio ha sido desarrollado por el estudiante de la Universidad Tecnológica de Panamá:  
+> *Nombre:* Arelys Carrion 
+> *Correo:* arelys.carrion@utp.ac.pa  
+> *Curso:* Ingeniería Web  
+> *Instructor del Laboratorio:* Irina Fong.
+
+
+## 📅  Fecha de Ejecución
+
+*Fecha:* 29 de octubre de 2025
